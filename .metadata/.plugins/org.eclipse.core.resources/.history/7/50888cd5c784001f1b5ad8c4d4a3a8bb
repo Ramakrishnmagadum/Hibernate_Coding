@@ -1,0 +1,23 @@
+package Criteria_API;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import HQL_Query.paginationTable;
+
+public class Restrictions_Example {
+	public static void main(String[] args) {
+		Configuration cfg=new Configuration();
+		cfg.configure();
+		SessionFactory sf=cfg.buildSessionFactory();
+		Session s=sf.openSession();
+		
+		Criteria c=s.createCriteria(paginationTable.class);
+		c.add(org.hibernate.criterion.Restrictions)
+		
+		
+	}
+	
+}

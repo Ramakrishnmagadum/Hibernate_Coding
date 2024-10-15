@@ -1,0 +1,7 @@
+package on_load_method;
+
+import org.hibernate.EmptyInterceptor;
+
+public class Onload_interceptor extends EmptyInterceptorn {
+
+}

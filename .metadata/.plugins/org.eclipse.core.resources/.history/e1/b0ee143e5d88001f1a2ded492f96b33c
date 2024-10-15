@@ -1,0 +1,14 @@
+package on_load_method;
+
+import java.io.Serializable;
+
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.type.Type;
+
+public class Onload_interceptor extends EmptyInterceptor{
+@Override
+public boolean onLoad(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
+	// TODO Auto-generated method stub
+	return super.onLoad(entity, id, state, propertyNames, types);
+}
+}

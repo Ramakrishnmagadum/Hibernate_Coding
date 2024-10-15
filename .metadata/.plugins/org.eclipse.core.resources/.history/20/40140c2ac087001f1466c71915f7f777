@@ -1,0 +1,43 @@
+package Validators_Annotation;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
+public class Validators_Annotation {
+
+	// A field annotated with this should not be null
+	// and we can customize the error msg also
+	@NotNull(message = "id should not be null")
+	int id;
+
+//	A field annotated with this should not be empty
+//	we can customize the message 
+	@NotEmpty(message = "name should not be empty")
+	String name;
+
+//	This field should not be null and not empty and not blank
+//	we can customize the message 
+	@NotBlank(message = "surname should be blank")
+	String surname;
+
+//	Given Minimum value has to be satisfied
+	@Min(message = "minimun marks should be greater then 1", value = 1)
+	int minmarks;
+	
+//	Given Maximum value has to be satisfied
+	@Max(value = 100, message = "marks shopuld be less then 100")
+	int max_marks;
+	
+	
+	
+	
+	
+}
+
+
+

@@ -1,0 +1,14 @@
+package on_load_method;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Onload_Bean {
+	@Id
+	int id;
+
+	String std_name;
+
+	int marks;
+}

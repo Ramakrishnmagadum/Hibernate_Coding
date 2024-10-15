@@ -1,0 +1,19 @@
+package onDelete_Method;
+
+import java.io.Serializable;
+
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.type.Type;
+
+public class OnDelete_Interceptor extends EmptyInterceptor {
+
+//	The onDelete() method in Hibernate Interceptors is another important hook that allows you to intercept the deletion of entities from the database
+//	this method will called ,before deleting entities 
+//	why we used this method ---before deleting any entity , some conditions wanted cehck and those conditions are statisfied then it wont allow to delete this Entity
+	
+	@Override
+	public void onDelete(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
+		// TODO Auto-generated method stub
+		super.onDelete(entity, id, state, propertyNames, types);
+	}
+}

@@ -1,0 +1,15 @@
+package onFlushDirty_Method;
+
+import java.io.Serializable;
+
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.type.Type;
+
+public class onFlushDirty_Interceptor extends EmptyInterceptor {
+@Override
+public boolean onFlushDirty(Object entity, Serializable id, Object[] currentState, Object[] previousState,
+		String[] propertyNames, Type[] types) {
+	// TODO Auto-generated method stub
+	return super.onFlushDirty(entity, id, currentState, previousState, propertyNames, types);
+}
+}

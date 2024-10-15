@@ -1,0 +1,19 @@
+package Validators_Annotation;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
+public class Validators_Annotation {
+
+	//A field annotated with this should not be null  
+	//and we can customize the error msg also
+	@NotNull(message = "id should not be null")
+	int id;
+	
+	@NotEmpty(message = "name should not be empty")
+	String name;
+	
+	
+}

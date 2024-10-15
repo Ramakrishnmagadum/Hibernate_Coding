@@ -1,0 +1,15 @@
+package Batch_Proccessing;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class Batch_Proccessing {
+public static void main(String[] args) {
+	SessionFactory sf=new Configuration().configure().buildSessionFactory();
+	Session s=sf.openSession();
+	s.setJdbcBatchSize(10);
+	
+	
+}
+}

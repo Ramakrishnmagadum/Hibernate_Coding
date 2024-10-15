@@ -1,0 +1,7 @@
+package Interceptors_Example;
+
+public class Interceptors_Sample {
+public static void main(String[] args) {
+	
+}
+}

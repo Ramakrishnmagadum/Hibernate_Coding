@@ -1,0 +1,29 @@
+package Native_Sql;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
+
+import HQL_Query.paginationTable;
+
+public class Sample {
+public static void main(String[] args) {
+	Configuration cfg=new Configuration();
+	cfg.configure();
+	SessionFactory sf=cfg.buildSessionFactory();
+	
+	Session s=sf.openSession();
+	
+	NativeQuery q = s.createSQLQuery("select * from paginationTable");
+	List<paginationTable> list=q.list();
+	for(paginationTable list2:list)
+	{
+		System.out.println(list2.getId()+" "+ list2.getName()+" "+ list2.getSurname());
+	}
+	System.out.println("completed");
+	
+}
+}

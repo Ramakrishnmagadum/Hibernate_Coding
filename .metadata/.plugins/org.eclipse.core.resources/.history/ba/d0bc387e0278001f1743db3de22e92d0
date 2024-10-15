@@ -1,0 +1,17 @@
+package One_To_One;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class Uni_Crud {
+public static void main(String[] args) {
+	Configuration cfg=new Configuration();
+	cfg.configure();
+	SessionFactory sf=cfg.buildSessionFactory();
+	Session session =sf.openSession();
+	Question_uni ques=session.get(Question_uni.class, 101);
+	System.out.println(ques);
+	System.out.println(ques.getAnswer().getAnswer());
+}
+}

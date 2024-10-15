@@ -1,0 +1,17 @@
+package Save_Method;
+
+import java.io.Serializable;
+
+import org.hibernate.EmptyInterceptor;
+import org.hibernate.type.Type;
+
+public class save_Interceptor  extends EmptyInterceptor{
+
+	//on save method is called just before the saving or inserting the data into Database
+	//we can modify the values also
+	@Override
+	public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
+		
+		return super.onSave(entity, id, state, propertyNames, types);
+	}
+}

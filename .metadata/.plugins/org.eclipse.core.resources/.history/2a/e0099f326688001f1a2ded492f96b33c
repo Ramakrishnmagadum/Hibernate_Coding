@@ -1,0 +1,5 @@
+package onDelete_Method;
+
+public class OnDelete_Interceptor {
+
+}

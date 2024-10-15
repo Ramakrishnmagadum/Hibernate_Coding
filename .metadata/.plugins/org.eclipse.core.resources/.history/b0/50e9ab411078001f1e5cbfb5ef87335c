@@ -1,0 +1,37 @@
+package One_To_One;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Answer_Bi {
+     @Id
+	private int Answer_id;
+	
+	private String answer;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "Question_Bi_question_id")
+	private Question_Bi question;
+	
+	
+
+	public int getAnswer_id() {
+		return Answer_id;
+	}
+
+	public void setAnswer_id(int answer_id) {
+		Answer_id = answer_id;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	
+}

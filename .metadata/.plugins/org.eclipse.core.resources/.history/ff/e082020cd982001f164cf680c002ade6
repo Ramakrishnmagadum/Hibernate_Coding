@@ -1,0 +1,38 @@
+package HQL_Query;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import One_To_Many.Answer_OTM;
+import One_To_Many.Question_OTM;
+import One_To_One.Question_uni;
+
+public class fetch_data {
+	public static void main(String[] args) {
+		Configuration cfg=new Configuration();
+		cfg.configure();
+		SessionFactory sf=cfg.buildSessionFactory();
+		
+		Session s=sf.openSession();
+//		select q.question , q.questionid , a.answer from Question_uni as q INNER JOIN q.answerr as a
+		Query query=s.createQuery("from Question_uni");
+	
+		System.out.println(query.getFetchSize());
+		query.getFirstResult();
+		System.out.println(query.getFirstResult());
+		List<Question_uni> list = query.getResultList();
+		for(Question_uni list2: list)
+		{
+			System.out.println(Arrays.toString(list2));
+		}
+		
+		query.getMaxResults();
+		System.out.println(query.getMaxResults());
+
+	}
+}

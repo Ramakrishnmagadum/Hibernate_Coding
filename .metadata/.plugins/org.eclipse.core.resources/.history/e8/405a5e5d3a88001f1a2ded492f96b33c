@@ -1,0 +1,5 @@
+package Interceptors_Example;
+
+public class Session_level_Bean {
+
+}

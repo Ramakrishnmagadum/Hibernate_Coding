@@ -1,0 +1,13 @@
+package onPrepareStatement_method;
+
+import org.hibernate.EmptyInterceptor;
+
+public class onPrepareStatement_Interceptor extends EmptyInterceptor {
+	
+	@Override
+	public String onPrepareStatement(String sql) {
+		System.out.println("sql query :- "+ sql);
+		return super.onPrepareStatement(sql);
+	}
+
+}

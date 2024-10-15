@@ -1,0 +1,15 @@
+package on_load_method;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import Save_Method.save_Interceptor;
+
+public class Onload_example {
+	public static void main(String[] args) {
+		SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		Session s=sf.withOptions().interceptor(new Onload_interceptor()).openSession();
+	}
+
+}

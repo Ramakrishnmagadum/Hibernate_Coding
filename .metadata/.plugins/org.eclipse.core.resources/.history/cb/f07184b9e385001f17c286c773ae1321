@@ -1,0 +1,16 @@
+package Caching_Example;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class Second_level_Example {
+	public static void main(String[] args) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session s=sf.openSession();
+		
+		
+		
+	}
+	
+}
