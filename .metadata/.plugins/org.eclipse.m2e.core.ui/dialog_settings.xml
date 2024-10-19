@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Ram_Coding\Hibernate_Coding\Event_Listners_\src\main\java\Hibernate\Event_Listners_\App.java"/>
+			<item value="D:\Ram_Coding\Hibernate_Coding\Interceptor_Concept\src\main\java\Save_Method\save_Interceptor.java"/>
 			<item value="D:\Ram_Coding\Hibernate_Coding\Operation\src\main\java\hibernate.cfg.xml"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -45,14 +47,12 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="Interceptors"/>
-			<item value="com.code"/>
+			<item value="Hibernate"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="Interceptor_Concept"/>
-			<item value="HibernateConcepts"/>
+			<item value="Hibernate_Event_Listners"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

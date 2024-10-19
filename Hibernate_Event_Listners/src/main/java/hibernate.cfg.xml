@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+
+		<!--for this we can declare size of the batch -->
+		<!--		<property name="hibernate.jdbc.batch_size">10</property>-->
+
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/RamDB</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<!--        <property name="hibernate.connection.pool_size">1</property>-->
+		<!--        <property
+		name="hibernate.current_session_context_class">thread</property>-->
+
+
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+		<!--		update will update table But Create will create every -->
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- Event listener configuration -->
+		<property name="hibernate.ejb.event.pre-insert">
+			PreInsertEventListener.Custome_PreInsertEventListners</property>
+	
+
+		<!-- Entity mappings -->
+		<mapping class="PreInsertEventListener.PreInsertEventListenee_Bean" />
+	
+	</session-factory>
+</hibernate-configuration>
