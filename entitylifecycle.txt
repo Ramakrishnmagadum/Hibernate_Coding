@@ -1,0 +1,109 @@
+Detach(): Evict and Detach() method both are similar
+ the detach() method is used to remove a specific entity from the session's first-level cache (the persistence context), similar to evict(). 
+ When you detach an entity, it becomes a detached instance, meaning that it is no longer managed by the session and any changes made to 
+ it won't be automatically persisted to the database.
+
+Key Points about detach():
+Removing from Management: When you call detach(entity), the specified entity is removed from the session's context, and Hibernate will no longer
+                          track changes to it.
+
+State Change: After detaching, the entity's state is no longer synchronized with the database. If you want to save any changes made to the 
+              detached entity, you need to merge it back into a new or existing session.
+
+Usage: The detach() method is useful when you want to:
+Temporarily remove an entity from the session.
+Free up memory when dealing with large amounts of data.
+Handle specific entities without affecting others in the session.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Evict:  Evict and Detach() method both are similar
+evicting an entity means removing it from the session's first-level cache (also known as the persistence context). When you evict an entity, 
+it is no longer managed by the session, and any further changes to that entity will not be automatically synchronized with the database.
+
+Key Points about Eviction:
+Session Management: Each Hibernate session maintains a cache of entities that it is managing. Evicting an entity frees up memory and can improve 
+performance by reducing the size of the session cache.
+
+Effect: After eviction, the entity becomes detached.
+ This means:
+            Changes made to the entity will not be automatically persisted.
+            You can still use the entity, but you must merge it back into the session if you want to persist changes.
+
+Use Cases: Eviction is useful in scenarios where:
+           You want to clear out stale or unneeded data from the session.
+           You want to free up resources in long-running sessions.
+           You need to detach an entity temporarily for a specific operation.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Clear:
+the clear() method is used to remove all entities from the session's first-level cache (also known as the persistence context). 
+This effectively detaches all entities currently managed by the session.
+
+Key Points about clear():
+Detachment of Entities: When you call clear(), all entities in the session become detached. This means:
+Changes made to these entities will not be automatically synchronized with the database.
+You can still interact with these entities, but they need to be reattached (merged) to the session if you want to persist any changes.
+
+Session Management: The clear() method is useful for freeing up memory and managing the session's state, especially in long-running sessions
+                    or when processing a large number of entities.
+
+Usage:
+Use clear() when you want to reset the session state while still keeping the session open for further operations.
+It can be helpful in batch processing scenarios where you process a large number of entities in a single session.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Difference between Evict() and Clear() Method:-
+
+The evict() and clear() methods in Hibernate both deal with the management of the session's first-level cache
+ (the persistence context), but they serve different purposes and operate in distinct ways.
+
+Key Differences
+evict(Object entity): This method is used to remove a specific entity from the session's cache. After calling evict() on an entity,
+ that particular entity becomes detached, but all other entities in the session remain managed.
+clear(): This method removes all entities from the session's cache. It effectively detaches every entity currently managed by the session.
+
+Usage:
+evict(): Use this method when you want to detach a specific entity while still retaining other entities in the session. This is useful 
+if you want to make changes to certain entities but not all.
+clear(): Use this when you want to reset the entire session, detaching all entities at once. This is useful in scenarios like batch processing,
+where you want to release all entities from memory after a certain point.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Close():
+
+the close() method is used to close a Session or SessionFactory. This is an important part of resource management in Hibernate applications.
+ Here's a breakdown of what the close() method does:
+
+      ---------   Session.close() -------------
+1.Releases Resources: Calling close() on a Session releases the database connection and any other resources associated with that session. 
+                      This is crucial for preventing resource leaks.
+
+2.Detaches Entities: When you close a session, all entities that were managed by that session become detached. This means any changes made
+                     to those entities will not be synchronized with the database unless the entities are merged back into a new session.
+
+3.State Management: After closing, the session cannot be used for any further operations. Attempting to use a closed session will result in 
+                    an exception.
+					
+	  ------------  SessionFactory.close() -------------
+Closes All Sessions: Calling close() on a SessionFactory closes all active sessions and releases any underlying resources (like database connections)
+                     that the factory manages.
+
+Prevents Further Operations:Once a SessionFactory is closed,it cannot be used to create new sessions. Attempting to do so will result in an exception.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Merge(): 
+---Imp----
+1. it will move the entity from Detached state to Persisted State ,
+2. in case we did any modification before detaching the entity and then detached the entity 
+3. But i want again in persisted state , so we move to persisted state,  but in will create new instance so we are not having old values in that..
+
+the merge() method is used to synchronize the state of a detached entity with the database. When you have a detached entity 
+(an entity that is no longer managed by the session), calling merge() allows you to update the database with the changes made to that entity.
+
+Key Points about merge():
+Purpose: The primary purpose of merge() is to take a detached entity (or a transient entity) and make it persistent again. 
+         It does this by copying the state of the entity into a managed instance.
+
+Return Value: The merge() method returns a new instance of the entity that is managed by the current session. This means that the original
+              detached entity remains detached, and any changes made to the returned instance will be tracked by the session.
+-------------------------------------------------------------------------------------------------------------------------------------------------------

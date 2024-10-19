@@ -1,7 +1,0 @@
-package onDelete_Method;
-
-import org.hibernate.EmptyInterceptor;
-
-public class OnDelete_Interceptor extends EmptyInterceptor {
-
-}
